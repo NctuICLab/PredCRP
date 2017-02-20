@@ -1,0 +1,203 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+use Getopt::Long qw(:config no_ignore_case);
+use Cwd 'abs_path';
+use File::Basename;
+my $program = abs_path($0);
+my ($filename, $PredCRPdir) = fileparse($program);
+#print "$filename, $PredCRPdir\n";die;
+my $svmscale = $PredCRPdir.'/svm-scale';
+my $svmpredict = $PredCRPdir.'/svm-predict';
+my $model = $PredCRPdir.'/PredCRP_model';
+my $tmp_location = $PredCRPdir.'/tmp';
+my $result_location = $PredCRPdir.'/predict_result';
+my $scale = $tmp_location."/crp_strong_169_12features_scl";
+my $input = '';
+my $help;
+sub Usage(){
+	print
+"Usage perl $program [Option]
+Option:
+	-i FILE: input CRP binding sites information
+	-svmscale pathname: set svm-scale executable path and name
+	-svmpredict pathname: set svm-predict executable path and name
+	-model pathname: set PredCRP_model path and name
+	-h, -help
+";
+}
+GetOptions(
+	'i=s'	=>\$input,
+	'svmscale=s'	=>\$svmscale,
+	'svmpredict=s'	=>\$svmpredict,
+	'model=s'	=>\$model,
+	'h|help'	=>\$help,
+);
+if($help){
+	&Usage();
+	exit;
+}
+if(!$input){
+	print STDERR "No input file\n";
+	&Usage();
+	exit;
+}
+my $svm_12features = fileparse($input);
+#print "$svm_12features\n";die;
+my $location_svm_12features = $tmp_location.'/'.$svm_12features."_svm";
+my $location_svm_12features_scl = $tmp_location.'/'.$svm_12features."_svm_scl";
+my $location_predict_result_tmp = $result_location.'/'.$svm_12features."_predict_tmp";
+my $location_predict_result = $result_location.'/'.$svm_12features."_predict";
+my $location_predict_final = $result_location.'/'.$svm_12features."_final";
+my ($sequence, $promoter_flag, $bubble_flag, $ar_overlap, $ca_overlap);
+my ($aacg, $catt, $gaac, $gagc, $tgcg, $ttac, $ttat, $tttt);
+open SVM,">",$location_svm_12features;
+open FILE,"<",$input;
+my $line=<FILE>;
+chomp $line;
+if($line !~ /CRPBS<10bp_CRPBS22bp_10bp>/){
+	print STDERR "Format of input file is error\n";
+	exit;
+}
+my $num=0;
+while($line=<FILE>){
+	chomp $line;
+	$aacg=0;
+	$catt=0;
+	$gaac=0;
+	$gagc=0;
+	$tgcg=0;
+	$ttac=0;
+	$ttat=0;
+	$tttt=0;
+	my @ele = split(/,/,$line);
+	$ele[0] =~ tr/A-Z/a-z/;
+	$sequence = $ele[0];
+	my $lengthSeq = length($sequence);
+	if($lengthSeq != 42){
+		print STDERR "input sequence error, 10bp+CRPBS(22bp)+10bp\n";
+		exit;
+	}
+	my @split_seq = split(//,$sequence);
+	foreach my $i (@split_seq){
+		if($i !~ m/[atcg]/){
+			print STDERR "input sequence error, only ATCG\n";	
+			exit;		
+		}
+	}
+	for(my $i=0; $i<@split_seq-3;$i++){
+		my $four_motif = substr($sequence,$i,4);
+		if($four_motif eq 'aacg'){
+			$aacg++;
+		}elsif($four_motif eq 'catt'){
+			$catt++;
+		}elsif($four_motif eq 'gaac'){
+			$gaac++;
+		}elsif($four_motif eq 'gagc'){
+			$gagc++;
+		}elsif($four_motif eq 'tgcg'){
+			$tgcg++;
+		}elsif($four_motif eq 'ttac'){
+			$ttac++;
+		}elsif($four_motif eq 'ttat'){
+			$ttat++;
+		}elsif($four_motif eq 'tttt'){
+			$tttt++;
+		}
+	}	
+	my $tss = $ele[1];
+	my $unit = $ele[2];
+	my $class_tmp = $ele[3];
+	#print "class:$class_tmp\n";
+	my $class = 0;
+	if($class_tmp eq '-'){
+		$class = 1;
+	}elsif($class_tmp eq '+'){
+		$class = 0;
+	}else{
+		$class = 0;
+	}
+	#print "class:$class\n";die;
+	#=======8 motifs =====================
+	my @motif;
+	#for(my $i=0; $i<8; $i++){
+	#	$motif[$i] = 	
+	#}	
+
+	$promoter_flag = 0;
+	$bubble_flag = 0;
+	$ar_overlap = 0;
+	$ca_overlap = 0;
+	#======= -35 ~ -10 ==============
+	if(($tss >= -35) and ($tss <= -10)){
+		$promoter_flag = 1;
+	}elsif((($tss-11) > -35) and (($tss-11) < -10)){
+		$promoter_flag = 1;
+	}elsif((($tss+11) > -35) and (($tss+11) < -10)){
+		$promoter_flag = 1;
+	}
+	#===== -10 ~ 2 ===================
+	if(($tss >= -10) and ($tss <= 2)){
+		$bubble_flag = 1;
+	}elsif((($tss-11) > -10) and (($tss-11) < 2)){
+		$bubble_flag = 1;
+	}elsif((($tss+11) > -10) and (($tss+11) < 2)){
+		$bubble_flag = 1;
+	} 
+	#===== -60 ~ 60 ==================
+	if(($tss >= -60) and ($tss <= 60)){
+		my $right = abs($tss+60);
+		my $left = abs(60-$tss);
+		if($right>11){
+			$right = 11;
+		}
+		if($left>11){
+			$left = 11;
+		}
+		$ar_overlap = abs($right+$left);	
+	}elsif((($tss-11) > -60) and (($tss-11) < 60)){
+		$ar_overlap = abs(60-($tss-11));	
+	}elsif((($tss+11) > -60) and (($tss+11) < 60)){
+		$ar_overlap = abs(($tss+11)+60);
+	}
+	#===== -95 ~ -35 ===================
+	if(($tss >= -95) and ($tss <= -35)){
+		my $right = abs($tss+95);
+		my $left = abs(-35-$tss);
+		if($right > 11){
+			$right = 11;
+		}
+		if($left > 11){
+			$left = 11;
+		}
+		$ca_overlap = abs($left + $right);		
+	}elsif((($tss-11) > -95) and (($tss-11) < -35)){
+		$ca_overlap = abs(-35-($tss-11));
+	}elsif((($tss+11) > -95) and (($tss+11) < -35)){
+		$ca_overlap = abs(($tss+11)+95);
+	}
+	print SVM "$class 1:$aacg 2:$catt 3:$gaac 4:$gagc 5:$tgcg 6:$ttac 7:$ttat 8:$tttt 9:$promoter_flag 10:$bubble_flag 11:$ar_overlap 12:$ca_overlap\n";
+	#die;
+}
+`$svmscale -r $scale $location_svm_12features > $location_svm_12features_scl`;
+`$svmpredict -b 1 $location_svm_12features_scl $model $location_predict_result_tmp`;
+open Pred,">",$location_predict_result;
+print Pred "Pred_role\tPred_probability\n";
+open Predtmp,"<",$location_predict_result_tmp;
+$line=<Predtmp>;
+while($line=<Predtmp>){
+	chomp $line;
+	my @ele = split(/ /,$line);
+	if($ele[0] == 0){
+		print Pred "activation\t$ele[1]\n";
+	}else{
+		print Pred "repression\t$ele[1]\n";
+	}	
+}
+`paste $input $location_predict_result > $location_predict_final`;
+`rm $location_predict_result_tmp`;
+`rm $location_predict_result`;
+close FILE;
+close SVM;
+close Predtmp;
+close Pred;
