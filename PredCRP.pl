@@ -32,6 +32,7 @@ GetOptions(
 	'model=s'	=>\$model,
 	'h|help'	=>\$help,
 );
+
 if($help){
 	&Usage();
 	exit;
@@ -45,28 +46,68 @@ if($input !~ /\.csv/){
 	print STDERR "The format of input file must be csv\n";
 	exit;
 }
+`perl -p -i -e "s/\r/\n/g" $input`;
 my $svm_12features = fileparse($input);
 $svm_12features =~ s/\.csv//g;
+#my $input_tmp = $tmp_location.'/'.$svm_12features."_tmp";
 my $location_svm_12features = $tmp_location.'/'.$svm_12features."_svm";
 my $location_svm_12features_scl = $tmp_location.'/'.$svm_12features."_svm_scl";
 my $location_predict_result_tmp = $result_location.'/'.$svm_12features."_predict_tmp";
 my $location_predict_result = $result_location.'/'.$svm_12features."_predict";
 my $location_predict_final = $result_location.'/'.$svm_12features."_PredictResult.csv";
-my ($sequence, $promoter_flag, $bubble_flag, $ar_overlap, $ca_overlap);
+my ($sequence, $tss, $unit, $class_tmp, $lengthSeq, $promoter_flag, $bubble_flag, $ar_overlap, $ca_overlap);
 my ($aacg, $catt, $gaac, $gagc, $tgcg, $ttac, $ttat, $tttt);
 my $header = "CRPBS,Distance of Center Position of CRPBS to TSS,Transcription Unit,Regulatory Role";
 open SVM,">",$location_svm_12features;
 open FILE,"<",$input;
 my $line=<FILE>;
 chomp $line;
-if($line !~ /$header/){
-	print "$line\n$header\n";
-	print STDERR "No header in input file\n";
-	exit;
-}
+	if($line !~ /$header/){
+		#print "$line\n$header\n";
+		print STDERR "No header in input file\n";
+		exit;
+	}
 my $num=0;
 while($line=<FILE>){
 	chomp $line;
+	my @ele = split(/,/,$line);
+	$ele[0] =~ tr/A-Z/a-z/;
+	$sequence = $ele[0];
+	$tss = $ele[1];
+	$unit = $ele[2];
+	$class_tmp = $ele[3];
+	$lengthSeq = length($sequence);
+	if($lengthSeq != 42){
+		print STDERR "input sequence error, 10bp + CRPBS(22bp) + 10bp\n";
+		exit;
+	}
+	feature_extraction($sequence, $tss, $unit, $class_tmp);	
+}
+`$svmscale -r $scale $location_svm_12features > $location_svm_12features_scl`;
+`$svmpredict -b 1 $location_svm_12features_scl $model $location_predict_result_tmp`;
+open Pred,">",$location_predict_result;
+print Pred ",Pred role,Pred probability\n";
+open Predtmp,"<",$location_predict_result_tmp;
+$line=<Predtmp>;
+while($line=<Predtmp>){
+	chomp $line;
+	my @ele = split(/ /,$line);
+	if($ele[0] == 0){
+		print Pred ",activation,$ele[1]\n";
+	}else{
+		print Pred ",repression,$ele[1]\n";
+	}	
+}
+`paste $input $location_predict_result > $location_predict_final`;
+`rm $location_predict_result_tmp`;
+`rm $location_predict_result`;
+close FILE;
+close SVM;
+close Predtmp;
+close Pred;
+
+sub feature_extraction{
+	my ($sequence, $tss, $unit, $class_tmp) = @_;
 	$aacg=0;
 	$catt=0;
 	$gaac=0;
@@ -75,14 +116,6 @@ while($line=<FILE>){
 	$ttac=0;
 	$ttat=0;
 	$tttt=0;
-	my @ele = split(/,/,$line);
-	$ele[0] =~ tr/A-Z/a-z/;
-	$sequence = $ele[0];
-	my $lengthSeq = length($sequence);
-	if($lengthSeq != 42){
-		print STDERR "input sequence error, 10bp+CRPBS(22bp)+10bp\n";
-		exit;
-	}
 	my @split_seq = split(//,$sequence);
 	foreach my $i (@split_seq){
 		if($i !~ m/[atcg]/){
@@ -110,9 +143,6 @@ while($line=<FILE>){
 			$tttt++;
 		}
 	}	
-	my $tss = $ele[1];
-	my $unit = $ele[2];
-	my $class_tmp = $ele[3];
 	my $class = 0;
 	if($class_tmp eq '-'){
 		$class = 1;
@@ -178,25 +208,5 @@ while($line=<FILE>){
 	print SVM "$class 1:$aacg 2:$catt 3:$gaac 4:$gagc 5:$tgcg 6:$ttac 7:$ttat 8:$tttt 9:$promoter_flag 10:$bubble_flag 11:$ar_overlap 12:$ca_overlap\n";
 	#die;
 }
-`$svmscale -r $scale $location_svm_12features > $location_svm_12features_scl`;
-`$svmpredict -b 1 $location_svm_12features_scl $model $location_predict_result_tmp`;
-open Pred,">",$location_predict_result;
-print Pred ",Pred role,Pred probability\n";
-open Predtmp,"<",$location_predict_result_tmp;
-$line=<Predtmp>;
-while($line=<Predtmp>){
-	chomp $line;
-	my @ele = split(/ /,$line);
-	if($ele[0] == 0){
-		print Pred ",activation,$ele[1]\n";
-	}else{
-		print Pred ",repression,$ele[1]\n";
-	}	
-}
-`paste $input $location_predict_result > $location_predict_final`;
-`rm $location_predict_result_tmp`;
-`rm $location_predict_result`;
-close FILE;
-close SVM;
-close Predtmp;
-close Pred;
+
+
