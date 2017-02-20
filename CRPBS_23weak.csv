@@ -1,4 +1,4 @@
-CRPBS<10bp_CRPBS22bp_10bp>,Distance_CenterPosition_CRPBS_TSS,TranscriptionUnit,RegulatoryRole<+:activation,-:repression>
+CRPBS,Distance of Center Position of CRPBS to TSS,Transcription Unit,Regulatory Role
 gttatctataTTATGTGATCTAAATCACTTTTaagtcagagt,-2.5,aaeR,-
 caaaggcaaaAAATGTGATTTCGTACACATCTgatttcactg,-63.5,ldtB,-
 cagtgaaatcAGATGTGTACGAAATCACATTTtttgcctttg,-97.5,ybiT,-
