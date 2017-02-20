@@ -113,7 +113,6 @@ while($line=<FILE>){
 	my $tss = $ele[1];
 	my $unit = $ele[2];
 	my $class_tmp = $ele[3];
-	#print "class:$class_tmp\n";
 	my $class = 0;
 	if($class_tmp eq '-'){
 		$class = 1;
@@ -122,13 +121,8 @@ while($line=<FILE>){
 	}else{
 		$class = 0;
 	}
-	#print "class:$class\n";die;
 	#=======8 motifs =====================
 	my @motif;
-	#for(my $i=0; $i<8; $i++){
-	#	$motif[$i] = 	
-	#}	
-
 	$promoter_flag = 0;
 	$bubble_flag = 0;
 	$ar_overlap = 0;
