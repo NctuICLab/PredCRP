@@ -1,0 +1,24 @@
+CRPBS,Distance of Center Position of CRPBS to TSS,Transcription Unit,Regulatory Role	,Pred role,Pred probability
+gttatctataTTATGTGATCTAAATCACTTTTaagtcagagt,-2.5,aaeR,-	,repression,0.792627
+caaaggcaaaAAATGTGATTTCGTACACATCTgatttcactg,-63.5,ldtB,-	,activation,0.00659777
+cagtgaaatcAGATGTGTACGAAATCACATTTtttgcctttg,-97.5,ybiT,-	,repression,0.889835
+ttgttgcataAAATGTGTGCTCGATCTCATTCatggccgcgt,4,ycdZ,-	,repression,0.678114
+aacaattttcTGACGTGATCTTCATCACAAATaatgacagtt,-41.5,idnDOTR,+	,activation,0.0504057
+actctgacttAAAAGTGATTTAGATCACATAAtatagataac,-63.5,aaeXAB,+	,activation,0.00659777
+gtaatcccaaAGCGGTGATCTATTTCACAAATtaataattaa,-90.5,aspA-dcuA,+	,activation,0.0120116
+cccgaaacaaAAATGTGATACCAATCACAGAAtacagcttat,-41.5,caiTABCDE,+	,activation,0.110029
+atattcccacATTTGTGATGGCTCTCACCTTTtaaagttgta,-39.5,exuT,+	,activation,0.397496
+gcgattacacTGATGTGATTTGCTTCACATCTttttacgtcg,-42.5,galP,+	,activation,0.00378544
+caatctccgcGAGCGTGCCAGTTTTCACATTCttcagttgca,-243.5,grpE,+	,activation,0.12643
+atacctcactTCTCGTGATCAAGATCACATTCtcgctttccc,-160.5,hyfABCDEFGHIJR-focB,+	,activation,0.0792684
+tttttcacaaATTTGAGAGTTGAATCTCAAATcatatcaaaa,-231.5,malS,+	,activation,0.329889
+aaagcccgaaAAATGTGCTGTTAATCACATGCctaagtaaaa,-58.5,mlc,+	,activation,0.0107652
+gacgtcattaTAGTGTGTGTCAGATCTCGTTTtccttaacca,-40.5,nupC,+	,activation,0.341604
+aaccgcagctATTTGTGAATCTTTTCACAGTTtaaattcccc,-57.5,preTA,+	,activation,0.0274134
+aaaatgcccgAGATGTGAAGCAAATCACCCACttaatgccgt,-93.5,rhaT,+	,activation,0.0175672
+taaatgttgtTATCGTGACCTGGATCACTGTTcaggataaaa,-83.5,sdhCDAB-sucABCD,+	,activation,0.00260867
+actggtcgtaTGCGGTGACGGAGTTCACCCTTtacgcctcct,-65.5,sfsA-dksA,+	,activation,0.0371721
+acggcattaaGTGGGTGATTTGCTTCACATCTcgggcatttt,-99.5,sodA,+	,activation,0.359622
+ttttaaagatTAATGCGATCTATATCACGCTGtgggtattgc,-89.5,uidABC,+	,activation,0.274796
+ttccattttaTTTTGCGAGCGAGCGCACACTTgtgaattatc,-81.5,xylAB,+	,activation,0.0211121
+gataattcacAAGTGTGCGCTCGCTCGCAAAAtaaaatggaa,-180.5,xylFGHR,+	,activation,0.0886981
