@@ -42,7 +42,7 @@ if(!$input){
 	exit;
 }
 if($input !~ /\.csv/){
-	print STDERR "The format of csv must be csv\n";
+	print STDERR "The format of input file must be csv\n";
 	exit;
 }
 my $svm_12features = fileparse($input);
