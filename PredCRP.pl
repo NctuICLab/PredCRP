@@ -49,7 +49,6 @@ if($input !~ /\.csv/){
 `perl -p -i -e "s/\r/\n/g" $input`;
 my $svm_12features = fileparse($input);
 $svm_12features =~ s/\.csv//g;
-#my $input_tmp = $tmp_location.'/'.$svm_12features."_tmp";
 my $location_svm_12features = $tmp_location.'/'.$svm_12features."_svm";
 my $location_svm_12features_scl = $tmp_location.'/'.$svm_12features."_svm_scl";
 my $location_predict_result_tmp = $result_location.'/'.$svm_12features."_predict_tmp";
@@ -206,7 +205,6 @@ sub feature_extraction{
 		$ca_overlap = abs(($tss+11)+95);
 	}
 	print SVM "$class 1:$aacg 2:$catt 3:$gaac 4:$gagc 5:$tgcg 6:$ttac 7:$ttat 8:$tttt 9:$promoter_flag 10:$bubble_flag 11:$ar_overlap 12:$ca_overlap\n";
-	#die;
 }
 
 
