@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+#Copyright (C) 2017 ICLab, National Chiao Tung University
+#Author: Mingju Tsai (milutsai.bi98g@g2.nctu.edu.tw)
 use warnings;
 use strict;
 use Getopt::Long qw(:config no_ignore_case);
