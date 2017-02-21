@@ -86,19 +86,19 @@ while($line=<FILE>){
 `$svmscale -r $scale $location_svm_12features > $location_svm_12features_scl`;
 `$svmpredict -b 1 $location_svm_12features_scl $model $location_predict_result_tmp`;
 open Pred,">",$location_predict_result;
-print Pred ",Pred role,Pred probability\n";
+print Pred "Pred role,Pred probability\n";
 open Predtmp,"<",$location_predict_result_tmp;
 $line=<Predtmp>;
 while($line=<Predtmp>){
 	chomp $line;
 	my @ele = split(/ /,$line);
 	if($ele[0] == 0){
-		print Pred ",activation,$ele[1]\n";
+		print Pred "activation,$ele[1]\n";
 	}else{
-		print Pred ",repression,$ele[1]\n";
+		print Pred "repression,$ele[1]\n";
 	}	
 }
-`paste $input $location_predict_result > $location_predict_final`;
+`paste -d , $input $location_predict_result > $location_predict_final`;
 `rm $location_predict_result_tmp`;
 `rm $location_predict_result`;
 close FILE;
