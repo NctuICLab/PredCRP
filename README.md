@@ -23,10 +23,18 @@ Options:
 -model pathname: set PredCRP_model path and name (Default: PredCRP_model is in the same folder).  
 -h, -help  
   
-
+Running 23 weak evidence data
+==============================
+-  step1:  To build the `svm-scale` and `svm-predict` executable program.  
 ```sh
 $ make
+```
+-  step2:  The 23 weak evidence data is in the data folder. The usage of PredCRP.pl is:  
+```sh
 $ perl PredCRP.pl -i data/CRPBS_23weak.csv
+```
+- step3: To see the predicted result  
+```sh
 $ cd predict_result/
 $ less -S CRPBS_23weak_PredictResult.csv
 ```
