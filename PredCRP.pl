@@ -48,7 +48,25 @@ if($input !~ /\.csv/){
 	print STDERR "The format of input file must be csv\n";
 	exit;
 }
-`perl -p -i -e "s/\r/\n/g" $input`;
+#`perl -p -i -e "s/\r/\n/g" $input`;
+my $line_tmp = qx(wc -l $input);
+my @line_tmp = split(/ /,$line_tmp);
+my $input_line = $line_tmp[0];
+print STDERR "# of CRPBS: $input_line\n";
+if($input_line == 0){
+	open IN,"<",$input;
+	my $content;
+	while(<IN>){
+		my $line = $_;
+		chomp $line;
+		$line =~ s/\r/\n/g;
+		$content = $line;
+	}
+	close IN;
+	open OUT,">",$input;
+	print OUT $content;
+	close OUT;
+}
 my $svm_12features = fileparse($input);
 $svm_12features =~ s/\.csv//g;
 my $location_svm_12features = $tmp_location.'/'.$svm_12features."_svm";
@@ -100,6 +118,17 @@ while($line=<Predtmp>){
 	}	
 }
 `paste -d , $input $location_predict_result > $location_predict_final`;
+my $final_content;
+open Final,"<",$location_predict_final;
+while(my $line=<Final>){
+	chomp $line;
+	$line =~ s/\r//;
+	$final_content .= $line."\n";
+}
+close Final;
+open OUT,">",$location_predict_final;
+print OUT $final_content;
+close OUT;
 `rm $location_predict_result_tmp`;
 `rm $location_predict_result`;
 close FILE;
