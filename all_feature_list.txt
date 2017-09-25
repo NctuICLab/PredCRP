@@ -266,7 +266,7 @@ entropy-density-profile (EDP) descriptor 2 -- D_EQ'
 entropy-density-profile (EDP) descriptor 3 -- D_(E_A')
 entropy-density-profile (EDP) descriptor 4 -- D_(E_C')
 entropy-density-profile (EDP) descriptor 5 -- D_(E_G)
-entropy-density-profile (EDP) descriptor 6 --D_(E_T)
+entropy-density-profile (EDP) descriptor 6 -- D_(E_T)
 transition descriptor 1 -- DT(A, C)
 transition descriptor 2 -- DT(A, G)
 transition descriptor 3 -- DT(A, T)
