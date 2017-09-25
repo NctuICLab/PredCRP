@@ -27,13 +27,13 @@ Options:
 
 Usage of feature_extraction_BindingSites.pl 
 ===========================================
-Usage: perl feature_extraction_BindingSites.pl [Options]
-Options:
-	-input		[FILE] The BindingSitesSet.txt download from RegulonDB.
-	-TF		[STR]	The interested TF (Ex: CRP).
-	-evidence	[No]	Evidence level (0:Weak, 1:Strong, 2:Both).
-	-length		[No]	10bp+BindingSites+10bp (Ex: The length of CRP-BS is 42).
-	-h		Show the usage.
+Usage: perl feature_extraction_BindingSites.pl [Options]  
+Options:  
+	-input		[FILE] The BindingSitesSet.txt download from RegulonDB.  
+	-TF		[STR]	The interested TF (Ex: CRP).  
+	-evidence	[No]	Evidence level (0:Weak, 1:Strong, 2:Both).  
+	-length		[No]	10bp+BindingSites+10bp (Ex: The length of CRP-BS is 42).  
+	-h		Show the usage.  
 
 
 Running 23 weak-evidence data
