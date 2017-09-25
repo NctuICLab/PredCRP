@@ -1,0 +1,392 @@
+4-mer -- AAAA
+4-mer -- AAAC
+4-mer -- AAAG
+4-mer -- AAAT
+4-mer -- AACA
+4-mer -- AACC
+4-mer -- AACG
+4-mer -- AACT
+4-mer -- AAGA
+4-mer -- AAGC
+4-mer -- AAGG
+4-mer -- AAGT
+4-mer -- AATA
+4-mer -- AATC
+4-mer -- AATG
+4-mer -- AATT
+4-mer -- ACAA
+4-mer -- ACAC
+4-mer -- ACAG
+4-mer -- ACAT
+4-mer -- ACCA
+4-mer -- ACCC
+4-mer -- ACCG
+4-mer -- ACCT
+4-mer -- ACGA
+4-mer -- ACGC
+4-mer -- ACGG
+4-mer -- ACGT
+4-mer -- ACTA
+4-mer -- ACTC
+4-mer -- ACTG
+4-mer -- ACTT
+4-mer -- AGAA
+4-mer -- AGAC
+4-mer -- AGAG
+4-mer -- AGAT
+4-mer -- AGCA
+4-mer -- AGCC
+4-mer -- AGCG
+4-mer -- AGCT
+4-mer -- AGGA
+4-mer -- AGGC
+4-mer -- AGGG
+4-mer -- AGGT
+4-mer -- AGTA
+4-mer -- AGTC
+4-mer -- AGTG
+4-mer -- AGTT
+4-mer -- ATAA
+4-mer -- ATAC
+4-mer -- ATAG
+4-mer -- ATAT
+4-mer -- ATCA
+4-mer -- ATCC
+4-mer -- ATCG
+4-mer -- ATCT
+4-mer -- ATGA
+4-mer -- ATGC
+4-mer -- ATGG
+4-mer -- ATGT
+4-mer -- ATTA
+4-mer -- ATTC
+4-mer -- ATTG
+4-mer -- ATTT
+4-mer -- CAAA
+4-mer -- CAAC
+4-mer -- CAAG
+4-mer -- CAAT
+4-mer -- CACA
+4-mer -- CACC
+4-mer -- CACG
+4-mer -- CACT
+4-mer -- CAGA
+4-mer -- CAGC
+4-mer -- CAGG
+4-mer -- CAGT
+4-mer -- CATA
+4-mer -- CATC
+4-mer -- CATG
+4-mer -- CATT
+4-mer -- CCAA
+4-mer -- CCAC
+4-mer -- CCAG
+4-mer -- CCAT
+4-mer -- CCCA
+4-mer -- CCCC
+4-mer -- CCCG
+4-mer -- CCCT
+4-mer -- CCGA
+4-mer -- CCGC
+4-mer -- CCGG
+4-mer -- CCGT
+4-mer -- CCTA
+4-mer -- CCTC
+4-mer -- CCTG
+4-mer -- CCTT
+4-mer -- CGAA
+4-mer -- CGAC
+4-mer -- CGAG
+4-mer -- CGAT
+4-mer -- CGCA
+4-mer -- CGCC
+4-mer -- CGCG
+4-mer -- CGCT
+4-mer -- CGGA
+4-mer -- CGGC
+4-mer -- CGGG
+4-mer -- CGGT
+4-mer -- CGTA
+4-mer -- CGTC
+4-mer -- CGTG
+4-mer -- CGTT
+4-mer -- CTAA
+4-mer -- CTAC
+4-mer -- CTAG
+4-mer -- CTAT
+4-mer -- CTCA
+4-mer -- CTCC
+4-mer -- CTCG
+4-mer -- CTCT
+4-mer -- CTGA
+4-mer -- CTGC
+4-mer -- CTGG
+4-mer -- CTGT
+4-mer -- CTTA
+4-mer -- CTTC
+4-mer -- CTTG
+4-mer -- CTTT
+4-mer -- GAAA
+4-mer -- GAAC
+4-mer -- GAAG
+4-mer -- GAAT
+4-mer -- GACA
+4-mer -- GACC
+4-mer -- GACG
+4-mer -- GACT
+4-mer -- GAGA
+4-mer -- GAGC
+4-mer -- GAGG
+4-mer -- GAGT
+4-mer -- GATA
+4-mer -- GATC
+4-mer -- GATG
+4-mer -- GATT
+4-mer -- GCAA
+4-mer -- GCAC
+4-mer -- GCAG
+4-mer -- GCAT
+4-mer -- GCCA
+4-mer -- GCCC
+4-mer -- GCCG
+4-mer -- GCCT
+4-mer -- GCGA
+4-mer -- GCGC
+4-mer -- GCGG
+4-mer -- GCGT
+4-mer -- GCTA
+4-mer -- GCTC
+4-mer -- GCTG
+4-mer -- GCTT
+4-mer -- GGAA
+4-mer -- GGAC
+4-mer -- GGAG
+4-mer -- GGAT
+4-mer -- GGCA
+4-mer -- GGCC
+4-mer -- GGCG
+4-mer -- GGCT
+4-mer -- GGGA
+4-mer -- GGGC
+4-mer -- GGGG
+4-mer -- GGGT
+4-mer -- GGTA
+4-mer -- GGTC
+4-mer -- GGTG
+4-mer -- GGTT
+4-mer -- GTAA
+4-mer -- GTAC
+4-mer -- GTAG
+4-mer -- GTAT
+4-mer -- GTCA
+4-mer -- GTCC
+4-mer -- GTCG
+4-mer -- GTCT
+4-mer -- GTGA
+4-mer -- GTGC
+4-mer -- GTGG
+4-mer -- GTGT
+4-mer -- GTTA
+4-mer -- GTTC
+4-mer -- GTTG
+4-mer -- GTTT
+4-mer -- TAAA
+4-mer -- TAAC
+4-mer -- TAAG
+4-mer -- TAAT
+4-mer -- TACA
+4-mer -- TACC
+4-mer -- TACG
+4-mer -- TACT
+4-mer -- TAGA
+4-mer -- TAGC
+4-mer -- TAGG
+4-mer -- TAGT
+4-mer -- TATA
+4-mer -- TATC
+4-mer -- TATG
+4-mer -- TATT
+4-mer -- TCAA
+4-mer -- TCAC
+4-mer -- TCAG
+4-mer -- TCAT
+4-mer -- TCCA
+4-mer -- TCCC
+4-mer -- TCCG
+4-mer -- TCCT
+4-mer -- TCGA
+4-mer -- TCGC
+4-mer -- TCGG
+4-mer -- TCGT
+4-mer -- TCTA
+4-mer -- TCTC
+4-mer -- TCTG
+4-mer -- TCTT
+4-mer -- TGAA
+4-mer -- TGAC
+4-mer -- TGAG
+4-mer -- TGAT
+4-mer -- TGCA
+4-mer -- TGCC
+4-mer -- TGCG
+4-mer -- TGCT
+4-mer -- TGGA
+4-mer -- TGGC
+4-mer -- TGGG
+4-mer -- TGGT
+4-mer -- TGTA
+4-mer -- TGTC
+4-mer -- TGTG
+4-mer -- TGTT
+4-mer -- TTAA
+4-mer -- TTAC
+4-mer -- TTAG
+4-mer -- TTAT
+4-mer -- TTCA
+4-mer -- TTCC
+4-mer -- TTCG
+4-mer -- TTCT
+4-mer -- TTGA
+4-mer -- TTGC
+4-mer -- TTGG
+4-mer -- TTGT
+4-mer -- TTTA
+4-mer -- TTTC
+4-mer -- TTTG
+4-mer -- TTTT
+PCP descriptor 1
+PCP descriptor 2
+PCP descriptor 3
+composition descriptor 1 -- A
+composition descriptor 2 -- C
+composition descriptor 3 -- G
+composition descriptor 4 -- T
+entropy-density-profile (EDP) descriptor 1 -- D_EH'
+entropy-density-profile (EDP) descriptor 2 -- D_EQ'
+entropy-density-profile (EDP) descriptor 3 -- D_(E_A')
+entropy-density-profile (EDP) descriptor 4 -- D_(E_C')
+entropy-density-profile (EDP) descriptor 5 -- D_(E_G)
+entropy-density-profile (EDP) descriptor 6 --D_(E_T)
+transition descriptor 1 -- DT(A, C)
+transition descriptor 2 -- DT(A, G)
+transition descriptor 3 -- DT(A, T)
+transition descriptor 4 -- DT(C, G)
+transition descriptor 5 -- DT(C, T)
+transition descriptor 6 -- DT(G, T)
+transition descriptor 7 -- DT(A, A)
+transition descriptor 8 -- DT(C, C)
+transition descriptor 9 -- DT(G, G)
+transition descriptor 10 -- DT(T, T)
+distribution descriptor 1 -- 1st position of A
+distribution descriptor 2 -- position at Q1 A
+distribution descriptor 3 -- position at Q2 A
+distribution descriptor 4 -- position at Q3 A
+distribution descriptor 5 -- last position of A
+distribution descriptor 6 -- 1st position of C
+distribution descriptor 7 -- position at Q1 C
+distribution descriptor 8 -- position at Q2 C
+distribution descriptor 9 -- position at Q3 C
+distribution descriptor 10 -- last position of C
+distribution descriptor 11 -- 1st position of G
+distribution descriptor 12 -- position at Q1 G
+distribution descriptor 13 -- position at Q2 G
+distribution descriptor 14 -- position at Q3 G
+distribution descriptor 15 -- last position of G
+distribution descriptor 16 -- 1st position of T
+distribution descriptor 17 -- position at Q1 T
+distribution descriptor 18 -- position at Q2 T
+distribution descriptor 19 -- position at Q3 T
+distribution descriptor 20 -- last position of T
+Center position of TF-bs, relative to Transcription Start Site (upstream or downstream)
+Center position of TF-bs, relative to Transcription Start Site (distance)
+Prevents RNA polymerase binding (overlap -35~-10, overlap:1, non:0)
+The number of overlapping
+The distance between CRP and RNA polymerase (where is upstream or downstream)
+Upstream of Transcription Start Site or not.(UP:1, down:0)
+Block transcription bubble or not (After RNA polymerase binding, a transcription bubble is created between positions -10 and 2)
+Block transcription bubble (The number of overlapping)
+Prevents other TF binding: Repressor
+Prevents other TF binding: Activator
+Forward or Reverse
+Class I activation at position -95~-60 or not
+How many Class I activation
+Class II activation at position -50~-35 or not
+How many Class II activation
+Activation by repressor modulation at position -60~60 or not
+How many Activation by repressor
+Repression by roadblock at position -10~60 or not
+How many Repression by roadback
+Repression by DNA looping at position -60~60 or not
+How many DNA looping
+Repression by activator modulation at position -95~-10 or not
+How many Repression by activation
+Cooperative activation at position -95~-35 or not
+How many cooperative activation
+Cooperative repression at position -60~60 or not
+How many Cooperative repression
+Promoter escape regulation at position -10~10 or not
+How many Promoter escape
+AAA
+AAC
+AAG
+AAT
+ACA
+ACC
+ACG
+ACT
+AGA
+AGC
+AGG
+AGT
+ATA
+ATC
+ATG
+ATT
+CAA
+CAC
+CAG
+CAT
+CCA
+CCC
+CCG
+CCT
+CGA
+CGC
+CGG
+CGT
+CTA
+CTC
+CTG
+CTT
+GAA
+GAC
+GAG
+GAT
+GCA
+GCC
+GCG
+GCT
+GGA
+GGC
+GGG
+GGT
+GTA
+GTC
+GTG
+GTT
+TAA
+TAC
+TAG
+TAT
+TCA
+TCC
+TCG
+TCT
+TGA
+TGC
+TGG
+TGT
+TTA
+TTC
+TTG
+TTT
