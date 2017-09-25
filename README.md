@@ -32,7 +32,7 @@ Options:
 	-input		[FILE] The BindingSitesSet.txt download from RegulonDB.  
 	-TF		[STR]	The interested TF (Ex: CRP).  
 	-evidence	[No]	Evidence level (0:Weak, 1:Strong, 2:Both).  
-	-length		[No]	10bp+BindingSites+10bp (Ex: The length of CRP-BS is 42).  
+	-length		[No]	10bp+BindingSites+10bp (Ex: The length of CRP is 42 (10 + 22 + 10) ).  
 	-h		Show the usage.  
 
 
