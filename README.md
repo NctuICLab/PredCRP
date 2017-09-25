@@ -15,15 +15,26 @@ The format of input csv file has 4 columns:
   
 Each line contains an instance and is ended by a '\n' character. 
 
-`PredCRP.pl` Usage
-===================
+Usage of PredCRP.pl
+==========================
 Usage: perl PrecCRP.pl [Options]  
 Options:  
--i  FILE: input CRP binding site information.  
--svmscale pathname: set svm-scale executable path and name (Default: svm-scale is in the same folder).  
--svmpredict pathname: set svm-predict executable path and name (Default: svm-scale is in the same folder).  
--model pathname: set PredCRP_model path and name (Default: PredCRP_model is in the same folder).  
--h, -help
+	-i FILE: input CRP binding site information.  
+	-svmscale pathname: set svm-scale executable path and name (Default: svm-scale is in the same folder).  
+	-svmpredict pathname: set svm-predict executable path and name (Default: svm-scale is in the same folder).  
+	-model pathname: set PredCRP_model path and name (Default: PredCRP_model is in the same folder).  
+	-h, -help
+
+Usage of feature_extraction_BindingSites.pl 
+===========================================
+Usage: perl feature_extraction_BindingSites.pl [Options]
+Options:
+	-input		[FILE] The BindingSitesSet.txt download from RegulonDB
+	-TF		[STR]	The interested TF (Ex: CRP)
+	-evidence	[No]	Evidence level (0:Weak, 1:Strong, 2:Both)
+	-length		[No]	10bp+BindingSites+10bp (Ex: The length of CRP-BS is 42)
+	-h		Show the usage
+
 
 Running 23 weak-evidence data
 ==============================
