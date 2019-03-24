@@ -52,4 +52,10 @@ $ cd predict_result/
 $ less -S CRPBS_23weak_PredictResult.csv
 ```
   
+Authors
+=======
+Ming-Ju Tsai and Shinn-Ying Ho
 
+Citing PredCRP
+==============
+PredCRP: predicting and analysing the regulatory roles of CRP from its binding sites in Escherichia coli. Scientific Reports volume 8, Article number: 951 (2018) [PMID:[2934372](https://www.ncbi.nlm.nih.gov/pubmed/29343727)]
