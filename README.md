@@ -56,7 +56,8 @@ $ less -S CRPBS_23weak_PredictResult.csv
   
 Authors
 =======
-Ming-Ju Tsai and Shinn-Ying Ho
+- Ming-Ju Tsai: milutsai.bi98g@g2.nctu.edu.tw
+- Shinn-Ying Ho:syho@nctu.edu.tw
 
 Citing PredCRP
 ==============
