@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #Copyright (C) 2017 ICLab, National Chiao Tung University
-#Author: Mingju Tsai (milutsai.bi98g@g2.nctu.edu.tw)
+#Author: Ming-Ju Tsai (milutsai.bi98g@g2.nctu.edu.tw)
 use warnings;
 use strict;
 use Getopt::Long qw(:config no_ignore_case);
@@ -48,24 +48,13 @@ if($input !~ /\.csv/){
 	print STDERR "The format of input file must be csv\n";
 	exit;
 }
-#`perl -p -i -e "s/\r/\n/g" $input`;
 my $line_tmp = qx(wc -l $input);
+$line_tmp =~ s/^\s+//;
 my @line_tmp = split(/ /,$line_tmp);
 my $input_line = $line_tmp[0];
 print STDERR "# of CRPBS: $input_line\n";
 if($input_line == 0){
-	open IN,"<",$input;
-	my $content;
-	while(<IN>){
-		my $line = $_;
-		chomp $line;
-		$line =~ s/\r/\n/g;
-		$content = $line;
-	}
-	close IN;
-	open OUT,">",$input;
-	print OUT $content;
-	close OUT;
+    print STDERR "Input format is not correct!\n";die;
 }
 my $svm_12features = fileparse($input);
 $svm_12features =~ s/\.csv//g;
